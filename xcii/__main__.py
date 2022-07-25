@@ -47,7 +47,7 @@ def maybe_str(v: Any) -> Optional[str]:
 def main() -> Any:
     if not valid_encoding():
         sys.stderr.write(
-            "asciinema needs an ASCII or UTF-8 character encoding to run. "
+            "xcii needs an ASCII or UTF-8 character encoding to run. "
             "Check the output of `locale` command.\n"
         )
         return 1
@@ -62,27 +62,27 @@ def main() -> Any:
     parser = argparse.ArgumentParser(
         description="Record and share your terminal sessions, the right way.",
         epilog="""example usage:
-  Record terminal and upload it to asciinema.org:
-    \x1b[1masciinema rec\x1b[0m
+  Record terminal and upload it to xcii.org:
+    \x1b[1mxcii rec\x1b[0m
   Record terminal to local file:
-    \x1b[1masciinema rec demo.cast\x1b[0m
-  Record terminal and upload it to asciinema.org, specifying title:
-    \x1b[1masciinema rec -t "My git tutorial"\x1b[0m
+    \x1b[1mxcii rec demo.cast\x1b[0m
+  Record terminal and upload it to xcii.org, specifying title:
+    \x1b[1mxcii rec -t "My git tutorial"\x1b[0m
   Record terminal to local file, limiting idle time to max 2.5 sec:
-    \x1b[1masciinema rec -i 2.5 demo.cast\x1b[0m
+    \x1b[1mxcii rec -i 2.5 demo.cast\x1b[0m
   Replay terminal recording from local file:
-    \x1b[1masciinema play demo.cast\x1b[0m
-  Replay terminal recording hosted on asciinema.org:
-    \x1b[1masciinema play https://asciinema.org/a/difqlgx86ym6emrmd8u62yqu8\x1b[0m
+    \x1b[1mxcii play demo.cast\x1b[0m
+  Replay terminal recording hosted on xcii.org:
+    \x1b[1mxcii play https://xcii.org/a/difqlgx86ym6emrmd8u62yqu8\x1b[0m
   Print full output of recorded session:
-    \x1b[1masciinema cat demo.cast\x1b[0m
+    \x1b[1mxcii cat demo.cast\x1b[0m
 
 For help on a specific command run:
-  \x1b[1masciinema <command> -h\x1b[0m""",  # noqa: E501
+  \x1b[1mxcii <command> -h\x1b[0m""",  # noqa: E501
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument(
-        "--version", action="version", version=f"asciinema {__version__}"
+        "--version", action="version", version=f"xcii {__version__}"
     )
 
     subparsers = parser.add_subparsers()
@@ -219,7 +219,7 @@ For help on a specific command run:
 
     # create the parser for the `upload` command
     parser_upload = subparsers.add_parser(
-        "upload", help="Upload locally saved terminal session to asciinema.org"
+        "upload", help="Upload locally saved terminal session to xcii.org"
     )
     parser_upload.add_argument(
         "filename", help="filename or path of local recording"
@@ -228,7 +228,7 @@ For help on a specific command run:
 
     # create the parser for the `auth` command
     parser_auth = subparsers.add_parser(
-        "auth", help="Manage recordings on asciinema.org account"
+        "auth", help="Manage recordings on xcii.org account"
     )
     parser_auth.set_defaults(cmd=AuthCommand)
 

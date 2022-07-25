@@ -18,7 +18,7 @@ test_() {
     local -r tag="${1}"
 
     local -ra docker_opts=(
-        "--tag=asciinema/asciinema:${tag}"
+        "--tag=xcii/xcii:${tag}"
         "--file=tests/distros/Dockerfile.${tag}"
     )
 
@@ -27,7 +27,7 @@ test_() {
     # shellcheck disable=SC2068
     "${DOCKER}" build ${docker_opts[@]} .
 
-    "${DOCKER}" run --rm -it "asciinema/asciinema:${tag}" tests/integration.sh
+    "${DOCKER}" run --rm -it "xcii/xcii:${tag}" tests/integration.sh
 }
 
 

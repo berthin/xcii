@@ -21,7 +21,7 @@ RUN apt-get update \
 
 WORKDIR /usr/src/app
 
-COPY asciinema/ asciinema/
+COPY xcii/ xcii/
 COPY tests/ tests/
 
 ENV LANG="en_US.utf8"

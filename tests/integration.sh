@@ -10,86 +10,86 @@ fi
 python3 -V
 
 ASCIINEMA_CONFIG_HOME="$(
-    mktemp -d 2>/dev/null || mktemp -d -t asciinema-config-home
+    mktemp -d 2>/dev/null || mktemp -d -t xcii-config-home
 )"
 
 export ASCIINEMA_CONFIG_HOME
 
-TMP_DATA_DIR="$(mktemp -d 2>/dev/null || mktemp -d -t asciinema-data-dir)"
+TMP_DATA_DIR="$(mktemp -d 2>/dev/null || mktemp -d -t xcii-data-dir)"
 
 trap 'rm -rf ${ASCIINEMA_CONFIG_HOME} ${TMP_DATA_DIR}' EXIT
 
-asciinema() {
-    python3 -m asciinema "${@}"
+xcii() {
+    python3 -m xcii "${@}"
 }
 
 ## test help message
 
-asciinema -h
+xcii -h
 
 ## test version command
 
-asciinema --version
+xcii --version
 
 ## test auth command
 
-asciinema auth
+xcii auth
 
 ## test play command
 
 # asciicast v1
-asciinema play -s 5 tests/demo.json
-asciinema play -s 5 -i 0.2 tests/demo.json
+xcii play -s 5 tests/demo.json
+xcii play -s 5 -i 0.2 tests/demo.json
 # shellcheck disable=SC2002
-cat tests/demo.json | asciinema play -s 5 -
+cat tests/demo.json | xcii play -s 5 -
 
 # asciicast v2
-asciinema play -s 5 tests/demo.cast
-asciinema play -s 5 -i 0.2 tests/demo.cast
+xcii play -s 5 tests/demo.cast
+xcii play -s 5 -i 0.2 tests/demo.cast
 # shellcheck disable=SC2002
-cat tests/demo.cast | asciinema play -s 5 -
+cat tests/demo.cast | xcii play -s 5 -
 
 ## test cat command
 
 # asciicast v1
-asciinema cat tests/demo.json
+xcii cat tests/demo.json
 # shellcheck disable=SC2002
-cat tests/demo.json | asciinema cat -
+cat tests/demo.json | xcii cat -
 
 # asciicast v2
-asciinema cat tests/demo.cast
+xcii cat tests/demo.cast
 # shellcheck disable=SC2002
-cat tests/demo.cast | asciinema cat -
+cat tests/demo.cast | xcii cat -
 
 ## test rec command
 
 # normal program
-asciinema rec -c 'bash -c "echo t3st; sleep 2; echo ok"' "${TMP_DATA_DIR}/1a.cast"
+xcii rec -c 'bash -c "echo t3st; sleep 2; echo ok"' "${TMP_DATA_DIR}/1a.cast"
 grep '"o",' "${TMP_DATA_DIR}/1a.cast"
 
 # very quickly exiting program
-asciinema rec -c whoami "${TMP_DATA_DIR}/1b.cast"
+xcii rec -c whoami "${TMP_DATA_DIR}/1b.cast"
 grep '"o",' "${TMP_DATA_DIR}/1b.cast"
 
 # signal handling
-bash -c "sleep 1; pkill -28 -n -f 'm asciinema'" &
-asciinema rec -c 'bash -c "echo t3st; sleep 2; echo ok"' "${TMP_DATA_DIR}/2.cast"
+bash -c "sleep 1; pkill -28 -n -f 'm xcii'" &
+xcii rec -c 'bash -c "echo t3st; sleep 2; echo ok"' "${TMP_DATA_DIR}/2.cast"
 
 bash -c "sleep 1; pkill -n -f 'bash -c echo t3st'" &
-asciinema rec -c 'bash -c "echo t3st; sleep 2; echo ok"' "${TMP_DATA_DIR}/3.cast"
+xcii rec -c 'bash -c "echo t3st; sleep 2; echo ok"' "${TMP_DATA_DIR}/3.cast"
 
 bash -c "sleep 1; pkill -9 -n -f 'bash -c echo t3st'" &
-asciinema rec -c 'bash -c "echo t3st; sleep 2; echo ok"' "${TMP_DATA_DIR}/4.cast"
+xcii rec -c 'bash -c "echo t3st; sleep 2; echo ok"' "${TMP_DATA_DIR}/4.cast"
 
 # with stdin recording
-echo "ls" | asciinema rec --stdin -c 'bash -c "sleep 1"' "${TMP_DATA_DIR}/5.cast"
+echo "ls" | xcii rec --stdin -c 'bash -c "sleep 1"' "${TMP_DATA_DIR}/5.cast"
 cat "${TMP_DATA_DIR}/5.cast"
 grep '"i", "ls\\n"' "${TMP_DATA_DIR}/5.cast"
 grep '"o",' "${TMP_DATA_DIR}/5.cast"
 
 # raw output recording
-asciinema rec --raw -c 'bash -c "echo t3st; sleep 1; echo ok"' "${TMP_DATA_DIR}/6.raw"
+xcii rec --raw -c 'bash -c "echo t3st; sleep 1; echo ok"' "${TMP_DATA_DIR}/6.raw"
 
 # appending to existing recording
-asciinema rec -c 'echo allright!; sleep 0.1' "${TMP_DATA_DIR}/7.cast"
-asciinema rec --append -c uptime "${TMP_DATA_DIR}/7.cast"
+xcii rec -c 'echo allright!; sleep 0.1' "${TMP_DATA_DIR}/7.cast"
+xcii rec --append -c uptime "${TMP_DATA_DIR}/7.cast"

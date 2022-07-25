@@ -4,7 +4,7 @@ from os import path
 from typing import Any, Dict, Optional
 from uuid import uuid4
 
-DEFAULT_API_URL: str = "https://asciinema.org"
+DEFAULT_API_URL: str = "https://xcii.org"
 DEFAULT_RECORD_ENV: str = "SHELL,TERM"
 
 
@@ -188,22 +188,22 @@ class Config:
 def get_config_home(env: Any = None) -> Any:
     if env is None:
         env = os.environ
-    env_asciinema_config_home = env.get("ASCIINEMA_CONFIG_HOME")
+    env_xcii_config_home = env.get("ASCIINEMA_CONFIG_HOME")
     env_xdg_config_home = env.get("XDG_CONFIG_HOME")
     env_home = env.get("HOME")
 
     config_home: Optional[str] = None
 
-    if env_asciinema_config_home:
-        config_home = env_asciinema_config_home
+    if env_xcii_config_home:
+        config_home = env_xcii_config_home
     elif env_xdg_config_home:
-        config_home = path.join(env_xdg_config_home, "asciinema")
+        config_home = path.join(env_xdg_config_home, "xcii")
     elif env_home:
-        if path.isfile(path.join(env_home, ".asciinema", "config")):
+        if path.isfile(path.join(env_home, ".xcii", "config")):
             # location for versions < 1.1
-            config_home = path.join(env_home, ".asciinema")
+            config_home = path.join(env_home, ".xcii")
         else:
-            config_home = path.join(env_home, ".config", "asciinema")
+            config_home = path.join(env_home, ".config", "xcii")
     else:
         raise Exception(
             "need $HOME or $XDG_CONFIG_HOME or $ASCIINEMA_CONFIG_HOME"

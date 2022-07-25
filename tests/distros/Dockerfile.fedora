@@ -8,7 +8,7 @@ RUN dnf install -y make python3 procps && dnf clean all
 
 WORKDIR /usr/src/app
 
-COPY asciinema/ asciinema/
+COPY xcii/ xcii/
 COPY tests/ tests/
 
 ENV LANG="en_US.utf8"

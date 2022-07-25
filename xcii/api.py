@@ -38,27 +38,7 @@ class Api:
         return f"{self.url}/api/asciicasts"
 
     def upload_asciicast(self, path_: str) -> Tuple[Any, Any]:
-        with open(path_, "rb") as f:
-            try:
-                status, headers, body = self.http_adapter.post(
-                    self.upload_url(),
-                    files={"asciicast": ("ascii.cast", f)},
-                    headers=self._headers(),
-                    username=self.user,
-                    password=self.install_id,
-                )
-            except HTTPConnectionError as e:
-                raise APIError(str(e)) from e
-
-        if status not in (200, 201):
-            self._handle_error(status, body)
-
-        if (headers.get("content-type") or "")[0:16] == "application/json":
-            result = json.loads(body)
-        else:
-            result = {"url": body}
-
-        return result, headers.get("Warning")
+        raise Exception('Upload are prohibited!')
 
     def _headers(self) -> Dict[str, Union[Callable[[], str], str]]:
         return {"user-agent": self._user_agent(), "accept": "application/json"}
@@ -68,7 +48,7 @@ class Api:
         os = re.sub("([^-]+)-(.*)", "\\1/\\2", platform.platform())
 
         return (
-            f"asciinema/{__version__} {platform.python_implementation()}"
+            f"xcii/{__version__} {platform.python_implementation()}"
             f"/{platform.python_version()} {os}"
         )
 
@@ -79,7 +59,7 @@ class Api:
             401: "Invalid or revoked install ID",
             404: (
                 "API endpoint not found. "
-                "This asciinema version may no longer be supported. "
+                "This xcii version may no longer be supported. "
                 "Please upgrade to the latest version."
             ),
             413: "Sorry, your asciicast is too big.",

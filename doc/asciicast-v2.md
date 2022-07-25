@@ -50,18 +50,18 @@ Duration of the whole recording in seconds (when it's known upfront). Float.
 
 #### `idle_time_limit`
 
-Idle time limit, as given via `-i` option to `asciinema rec`. Float.
+Idle time limit, as given via `-i` option to `xcii rec`. Float.
 
 This should be used by an asciicast player to reduce all terminal inactivity
 (delays between frames) to maximum of `idle_time_limit` value.
 
 #### `command`
 
-Command that was recorded, as given via `-c` option to `asciinema rec`. String.
+Command that was recorded, as given via `-c` option to `xcii rec`. String.
 
 #### `title`
 
-Title of the asciicast, as given via `-t` option to `asciinema rec`. String.
+Title of the asciicast, as given via `-t` option to `xcii rec`. String.
 
 #### `env`
 
@@ -76,7 +76,7 @@ Example env:
 }
 ```
 
-> Official asciinema recorder captures only `SHELL` and `TERM` by default. All
+> Official xcii recorder captures only `SHELL` and `TERM` by default. All
 > implementations of asciicast-compatible terminal recorder should not capture
 > any additional environment variables unless explicitly permitted by the user.
 
@@ -159,7 +159,7 @@ shell.
 event, it's UTF-8 encoded JSON string, with all non-printable Unicode codepoints
 encoded as `\uXXXX`.
 
-> Official asciinema recorder doesn't capture stdin by default. All
+> Official xcii recorder doesn't capture stdin by default. All
 > implementations of asciicast-compatible terminal recorder should not capture
 > it either unless explicitly permitted by the user.
 
@@ -177,7 +177,7 @@ easily fixed in the old format:
 Due to file structure change (standard JSON => newline-delimited JSON) version 2
 is not backwards compatible with version 1. Support for v2 has been added in:
 
-* [asciinema terminal recorder](https://github.com/asciinema/asciinema) - 2.0.0
-* [asciinema web player](https://github.com/asciinema/asciinema-player) - 2.6.0
-* [asciinema server](https://github.com/asciinema/asciinema-server) - v20171105
+* [xcii terminal recorder](https://github.com/xcii/xcii) - 2.0.0
+* [xcii web player](https://github.com/xcii/xcii-player) - 2.6.0
+* [xcii server](https://github.com/xcii/xcii-server) - v20171105
   tag in git repository

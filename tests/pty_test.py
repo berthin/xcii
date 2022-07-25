@@ -2,7 +2,7 @@ import os
 import pty
 from typing import Any, List, Union
 
-import asciinema.pty_
+import xcii.pty_
 
 from .test_helper import Test
 
@@ -47,7 +47,7 @@ class TestRecord(Test):
             ),
         ]
 
-        asciinema.pty_.record(
+        xcii.pty_.record(
             command, {}, writer, lambda: (80, 24), lambda s: None, {}
         )
 

@@ -1,5 +1,5 @@
-NAME    := asciinema
-VERSION := $(shell python3 -c "import asciinema; print(asciinema.__version__)")
+NAME    := xcii
+VERSION := $(shell python3 -c "import xcii; print(xcii.__version__)")
 
 VIRTUAL_ENV ?= .venv
 

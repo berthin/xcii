@@ -19,8 +19,8 @@ RUN apt-get update \
 
 COPY pyproject.toml setup.cfg *.md /usr/src/app/
 COPY doc/*.md /usr/src/app/doc/
-COPY man/asciinema.1 /usr/src/app/man/
-COPY asciinema/ /usr/src/app/asciinema/
+COPY man/xcii.1 /usr/src/app/man/
+COPY xcii/ /usr/src/app/xcii/
 COPY README.md LICENSE /usr/src/app/
 
 WORKDIR /usr/src/app
@@ -32,7 +32,7 @@ WORKDIR /root
 ENV LANG="en_US.utf8"
 ENV SHELL="/bin/bash"
 
-ENTRYPOINT ["/usr/local/bin/asciinema"]
+ENTRYPOINT ["/usr/local/bin/xcii"]
 CMD ["--help"]
 
 # vim:ft=dockerfile

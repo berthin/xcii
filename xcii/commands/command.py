@@ -25,10 +25,10 @@ class Command:
             print(text, file=sys.stderr, end=end)
 
     def print_info(self, text: str) -> None:
-        self.print(f"asciinema: {text}", color=2)
+        self.print(f"xcii: {text}", color=2)
 
     def print_warning(self, text: str) -> None:
-        self.print(f"asciinema: {text}", color=3)
+        self.print(f"xcii: {text}", color=3)
 
     def print_error(self, text: str) -> None:
-        self.print(f"asciinema: {text}", color=1, force=True)
+        self.print(f"xcii: {text}", color=1, force=True)

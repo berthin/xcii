@@ -1,4 +1,4 @@
-# asciinema changelog
+# xcii changelog
 
 ## 2.2.0 (2022-05-07)
 
@@ -20,7 +20,7 @@
 * Desktop notifications - only for the above pause feature at the moment
 * Removed dependency on tput/ncurses (thanks @arp242 / Martin Tournoij!)
 * ASCIINEMA_REC env var is back (thanks @landonb / Landon Bouma!)
-* Terminal answerbacks (CSI 6 n) in `asciinema cat` are now hidden (thanks @djpohly / Devin J. Pohly!)
+* Terminal answerbacks (CSI 6 n) in `xcii cat` are now hidden (thanks @djpohly / Devin J. Pohly!)
 * Codeset detection works on HP-UX now (thanks @michael-o / Michael Osipov!)
 * Attempt at recording to existing file suggests use of `--overwrite` option now
 * Upload for users with very long `$USER` is fixed
@@ -32,8 +32,8 @@
 * Official support for Python 3.7
 * Recording is now possible on US-ASCII locale (thanks Jean-Philippe @jpouellet Ouellet!)
 * Improved Android support (thanks Fredrik @fornwall Fornwall!)
-* Possibility of programatic recording with `asciinema.record_asciicast` function
-* Uses new JSON response format added recently to asciinema-server
+* Possibility of programatic recording with `xcii.record_asciicast` function
+* Uses new JSON response format added recently to xcii-server
 * Tweaked message about how to stop recording (thanks Bachynin @vanyakosmos Ivan!)
 * Added proper description and other metadata to Python package (thanks @Crestwave!)
 
@@ -41,7 +41,7 @@
 
 * Fixed example in asciicast v2 format doc (thanks Josh "@anowlcalledjosh" Holland!)
 * Replaced deprecated `encodestring` (since Python 3.1) with `encodebytes` (thanks @delirious-lettuce!)
-* Fixed location of config dir (you can `mv ~/.asciinema ~/.config/asciinema`)
+* Fixed location of config dir (you can `mv ~/.xcii ~/.config/xcii`)
 * Internal refactorings
 
 ## 2.0 (2018-02-10)
@@ -51,14 +51,14 @@ notable ones:
 
 * new [asciicast v2 file format](doc/asciicast-v2.md)
 * recording and playback of arbitrarily long session with minimal memory usage
-* ability to live-stream via UNIX pipe: `asciinema rec unix.pipe` + `asciinema play unix.pipe` in second terminal tab/window
-* optional stdin recording (`asciinema rec --stdin`)
-* appending to existing recording (`asciinema rec --append <filename>`)
-* raw recording mode, storing only stdout bytes (`asciinema rec --raw <filename>`)
-* environment variable white-listing (`asciinema rec --env="VAR1,VAR2..."`)
-* toggling pause in `asciinema play` by <kbd>Space</kbd>
+* ability to live-stream via UNIX pipe: `xcii rec unix.pipe` + `xcii play unix.pipe` in second terminal tab/window
+* optional stdin recording (`xcii rec --stdin`)
+* appending to existing recording (`xcii rec --append <filename>`)
+* raw recording mode, storing only stdout bytes (`xcii rec --raw <filename>`)
+* environment variable white-listing (`xcii rec --env="VAR1,VAR2..."`)
+* toggling pause in `xcii play` by <kbd>Space</kbd>
 * stepping through a recording one frame at a time with <kbd>.</kbd> (when playback paused)
-* new `asciinema cat <filename>` command to dump full output of the recording
+* new `xcii cat <filename>` command to dump full output of the recording
 * playback from new IPFS URL scheme: `dweb:/ipfs/` (replaces `fs:/`)
 * lots of other bugfixes and improvements
 * dropped official support for Python 3.3 (although it still works on 3.3)
@@ -67,16 +67,16 @@ notable ones:
 
 * Dropped distutils fallback in setup.py - setuptools required now (thanks Jakub "@jakubjedelsky" Jedelsky!)
 * Dropped official support for Python 3.2 (although it still works on 3.2)
-* New `--speed` option for `asciinema play` (thanks Bastiaan "@bastiaanb" Bakker!)
+* New `--speed` option for `xcii play` (thanks Bastiaan "@bastiaanb" Bakker!)
 * Ability to set API token via `ASCIINEMA_API_TOKEN` env variable (thanks Samantha "@samdmarshall" Marshall!)
 * Improved shutdown on more signals: CHLD, HUP, TERM, QUIT (thanks Richard "@typerlc"!)
-* Fixed stdin handling during playback via `asciinema play`
+* Fixed stdin handling during playback via `xcii play`
 
 ## 1.3.0 (2016-07-13)
 
-This release brings back the original Python implementation of asciinema. It's
+This release brings back the original Python implementation of xcii. It's
 based on 0.9.8 codebase and adds all features and bug fixes that have been
-implemented in asciinema's Go version between 0.9.8 and 1.2.0.
+implemented in xcii's Go version between 0.9.8 and 1.2.0.
 
 Other notable changes:
 
@@ -90,9 +90,9 @@ Other notable changes:
 
 ## 1.2.0 (2016-02-22)
 
-* Added playback from stdin: `cat demo.json | asciinema play -`
-* Added playback from IPFS: `asciinema play ipfs:/ipfs/QmcdXYJp6e4zNuimuGeWPwNMHQdxuqWmKx7NhZofQ1nw2V`
-* Added playback from asciicast page URL: `asciinema play https://asciinema.org/a/22124`
+* Added playback from stdin: `cat demo.json | xcii play -`
+* Added playback from IPFS: `xcii play ipfs:/ipfs/QmcdXYJp6e4zNuimuGeWPwNMHQdxuqWmKx7NhZofQ1nw2V`
+* Added playback from asciicast page URL: `xcii play https://xcii.org/a/22124`
 * `-q/--quiet` option added to `rec` command
 * Fixed handling of partial UTF-8 sequences in recorded stdout
 * Final "exit" is now removed from recorded stdout
@@ -122,7 +122,7 @@ Other notable changes:
 * Help message includes all commands with their possible options
 * `-y` and `-t` options have longer alternatives: `--yes`, `--title`
 * `--max-wait` option has shorter alternative: `-w`
-* Import paths changed to `github.com/asciinema/asciinema` due to repository
+* Import paths changed to `github.com/xcii/xcii` due to repository
   renaming
 * `-y` also suppresess "please resize terminal" prompt
 
@@ -160,7 +160,7 @@ Other notable changes:
 ## 0.9.6 (2013-10-06)
 
 * Remove install script
-* Introduce proper python package: https://pypi.python.org/pypi/asciinema
+* Introduce proper python package: https://pypi.python.org/pypi/xcii
 * Make the code compatible with both python 2 and 3
 * Use requests lib instead of urrlib(2)
 
@@ -198,7 +198,7 @@ Other notable changes:
 
 ## 0.9.0 (2013-09-24)
 
-* Project rename from "ascii.io" to "asciinema"
+* Project rename from "ascii.io" to "xcii"
 
 ## ... limbo? ...
 

@@ -1,7 +1,7 @@
 import sys
 
-__author__ = "Marcin Kulik"
-__version__ = "2.2.0"
+__author__ = "Berthin Torres"
+__version__ = "0.0.1"
 
 if sys.version_info < (3, 6):
     raise ImportError("Python < 3.6 is unsupported.")

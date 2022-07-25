@@ -3,8 +3,8 @@ import tempfile
 from os import path
 from typing import Dict, Optional
 
-import asciinema.config as cfg
-from asciinema.config import Config
+import xcii.config as cfg
+from xcii.config import Config
 
 
 def create_config(
@@ -103,7 +103,7 @@ def test_upgrade_config_file_with_user_token_and_more() -> None:
 
 def test_default_api_url() -> None:
     config = create_config("")
-    assert config.api_url == "https://asciinema.org"
+    assert config.api_url == "https://xcii.org"
 
 
 def test_default_record_stdin() -> None:

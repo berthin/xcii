@@ -152,7 +152,7 @@ class RecordCommand(Command):  # pylint: disable=too-many-instance-attributes
                 self.print("\r\x1b[A", end="")
                 self.print_error(f"upload failed: {str(e)}")
                 self.print_error(
-                    f"retry later by running: asciinema upload {self.filename}"
+                    f"retry later by running: xcii upload {self.filename}"
                 )
                 return 1
         else:

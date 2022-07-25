@@ -1,11 +1,11 @@
-# Contributing to asciinema
+# Contributing to xcii
 
 First, if you're opening a GitHub issue make sure it goes to the correct
 repository:
 
-- [asciinema/asciinema](https://github.com/asciinema/asciinema/issues) - command-line recorder
-- [asciinema/asciinema-server](https://github.com/asciinema/asciinema-server/issues) - public website hosting recordings
-- [asciinema/asciinema-player](https://github.com/asciinema/asciinema-player/issues) - player
+- [xcii/xcii](https://github.com/xcii/xcii/issues) - command-line recorder
+- [xcii/xcii-server](https://github.com/xcii/xcii-server/issues) - public website hosting recordings
+- [xcii/xcii-player](https://github.com/xcii/xcii-player/issues) - player
 
 ## Reporting bugs
 
@@ -30,7 +30,7 @@ If you found a bug and made a patch for it:
 
 We welcome all ideas.
 
-If you believe most asciinema users would benefit from implementing your idea
+If you believe most xcii users would benefit from implementing your idea
 then feel free to open a GitHub issue. However, as this is an open-source
 project maintained by a small team of volunteers we simply can't implement all
 of them due to limited resources. Please keep that in mind.
@@ -38,25 +38,25 @@ of them due to limited resources. Please keep that in mind.
 ## Proposing features/changes (pull requests)
 
 If you want to propose code change, either introducing a new feature or
-improving an existing one, please first discuss this with asciinema team. You
-can simply open a separate issue for a discussion or join #asciinema IRC
+improving an existing one, please first discuss this with xcii team. You
+can simply open a separate issue for a discussion or join #xcii IRC
 channel on Libera.Chat.
 
 ## Asking for help
 
 GitHub issue tracker is not a support forum.
 
-If you need help then either join #asciinema IRC channel on Libera.Chat or
-drop us an email at <support@asciinema.org>.
+If you need help then either join #xcii IRC channel on Libera.Chat or
+drop us an email at <support@xcii.org>.
 
 ## Reporting security issues
 
-If you found a security issue in asciinema please contact us at
-support@asciinema.org. For the benefit of all asciinema users please **do
+If you found a security issue in xcii please contact us at
+support@xcii.org. For the benefit of all xcii users please **do
 not** publish details of the vulnerability in a GitHub issue.
 
 The PGP key below (1eb33a8760dec34b) can be used when sending encrypted email
-to or verifying responses from support@asciinema.org.
+to or verifying responses from support@xcii.org.
 
 ```Public Key
 -----BEGIN PGP PUBLIC KEY BLOCK-----

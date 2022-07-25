@@ -1,7 +1,7 @@
 import json
 import tempfile
 
-from asciinema.asciicast import v2
+from xcii.asciicast import v2
 
 from ..test_helper import Test
 

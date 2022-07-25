@@ -42,7 +42,7 @@ class AppleScriptNotifier(Notifier):
         return [
             self.cmd,
             "-e",
-            f'display notification "{text}" with title "asciinema"',
+            f'display notification "{text}" with title "xcii"',
         ]
 
 
@@ -54,8 +54,8 @@ class LibNotifyNotifier(Notifier):
         icon_path = self.get_icon_path()
 
         if icon_path is not None:
-            return [self.cmd, "-i", icon_path, "asciinema", text]
-        return [self.cmd, "asciinema", text]
+            return [self.cmd, "-i", icon_path, "xcii", text]
+        return [self.cmd, "xcii", text]
 
 
 class TerminalNotifier(Notifier):
@@ -69,7 +69,7 @@ class TerminalNotifier(Notifier):
             return [
                 "terminal-notifier",
                 "-title",
-                "asciinema",
+                "xcii",
                 "-message",
                 text,
                 "-appIcon",
@@ -78,7 +78,7 @@ class TerminalNotifier(Notifier):
         return [
             "terminal-notifier",
             "-title",
-            "asciinema",
+            "xcii",
             "-message",
             text,
         ]
